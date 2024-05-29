@@ -3,9 +3,28 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
+//Si la vista no necesita logica
+//Route::view('/', 'welcome');
+
+//Peticiones
+/* Route::post();
+Route::put();
+Route::patch();
+Route::delete(); */
+//Varios o todos los tipos de peticiones
+/* Route::match(['put', 'patch'], '/', function(){
+
 });
+Route::any('/', function(){
+
+}); */
+
+Route::view('contacto', 'contact')->name('contact');
+Route::view('nosotros', 'about')->name('about');
+Route::view('blog', 'blog')->name('blog');
+Route::get('/', function () { 
+    return view('welcome');
+})->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
